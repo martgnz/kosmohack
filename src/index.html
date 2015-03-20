@@ -294,42 +294,5 @@
 
 	<script type="text/javascript" src="js/all.js"></script>
 
-	<script>
-	$( document ).ready(function() {
-		$(window).scroll(function() {
-	    $(".cover").css({
-	    'opacity' : 1-(($(this).scrollTop())/500)
-	    	});          
-		});
-
-		// much wow, very animation
-		new WOW().init();
-
-		// count up timer
-		var div = document.getElementById( 'deaths' );
-		var i	= 0;
-		setInterval(function(){ div.innerHTML=i; i++; },2000)
-
-		// count up
-		/* var options = {
-		  useEasing : true,
-		  useGrouping : true,
-		  separator : ',',
-		  decimal : '.',
-		  prefix : '',
-		  suffix : ''
-		};
-
-		var waypoint = new Waypoint({
-		  element: document.getElementById('comparison1'),
-		  handler: function() {
-			var number1 = new countUp("aliments", 0, 16200, 0, 10, options);
-			number1.start();
-		  },
-		  offset: 400
-		}); */
-
-	});	
-	</script>
 </body>
 </html>

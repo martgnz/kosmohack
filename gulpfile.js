@@ -30,8 +30,8 @@ var sources = {
             'src/js/jquery.min.js',
             'src/js/bootstrap.min.js',
             'src/js/countUp.min.js',
-            'src/js/main.js',
-            'src/js/wow.min.js'
+            'src/js/wow.min.js',
+            'src/js/main.js'
         ],
         ie : [
             'src/js/html5shiv.js',
