@@ -1,0 +1,5 @@
+/* TEAM */
+Location: Barcelona, Spain
+
+/* SITE */
+Last update: <%= misc.calendar %>, <%= misc.clock %>
