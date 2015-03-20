@@ -14,27 +14,33 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var cmq = require('gulp-combine-media-queries');
 var ghPages = require('gulp-gh-pages');
-var es = require('event-stream');
+var es = require('event-stream');var sass = require('gulp-sass');
 var template = require('gulp-template');
 var argv = require('yargs').argv;
 
 // declaration of source files
 var sources = {
     css : [
+        'src/css/font-awesome.min.css',
         'src/css/bootstrap.min.css',
         'src/css/main.css'
     ],
     js : {
-        all : [,
+        all : [
+            'src/js/jquery.min.js',
             'src/js/bootstrap.min.js',
+            'src/js/countUp.min.js',
             'src/js/main.js',
-            'src/js/tbb.banner.js'
+            'src/js/wow.min.js'
         ],
         ie : [
             'src/js/html5shiv.js',
             'src/js/respond.min.js'
         ]
     },
+    sass : [
+        'src/sass/**/*'
+    ],
     html : [
         'src/index.html'
     ],
@@ -42,7 +48,10 @@ var sources = {
         'src/fonts/*'
     ],
     images : [
-        'src/images/**/*'
+        'src/img/**/*'
+    ],
+    video : [
+        'src/video/**/*'
     ],
     others : [
         'src/robots.txt',
@@ -69,8 +78,11 @@ var target = {
     fonts : {
         dir : 'dist/fonts'
     },
+    video : {
+        dir : 'dist/video'
+    },
     images : {
-        dir : 'dist/images'
+        dir : 'dist/img'
     },
     others : {
         dir: 'dist/'
@@ -130,6 +142,10 @@ gulp.task('html', ['clean'], function() {
     return stream;
 });
 
+gulp.task('video', ['clean'], function() {
+    return gulp.src(sources.video)
+        .pipe(gulp.dest(target.video.dir));
+});
 gulp.task('fonts', ['clean'], function() {
     return gulp.src(sources.fonts)
         .pipe(gulp.dest(target.fonts.dir));
@@ -154,7 +170,10 @@ gulp.task('img', ['clean'], function() {
 gulp.task('css', ['clean'], function() {
     var preSize = size();
     var postSize = size();
-    var stream = gulp.src(sources.css)
+    var sassStream = gulp.src(sources.sass)
+        .pipe(sass());
+    var cssStream = gulp.src(sources.css);
+    var stream = es.merge(cssStream, sassStream)
         .pipe(preSize)
         .pipe(concat(target.css.name));
     if (environment.production) {
@@ -208,11 +227,11 @@ gulp.task('commit', ['build'], function() {
             .pipe(gutil.noop());
     } else if (environment.production) {
         return stream
-            .pipe(ghPages({branch : "master"}));
+            .pipe(ghPages({branch : "gh-pages"}));
     }
 });
 
-gulp.task('build', ['others','html', 'img', 'css', 'js', 'fonts']);
+gulp.task('build', ['others','html', 'img', 'css', 'video', 'js', 'fonts']);
 
 gulp.task('clean', function(cb) {
     del(['dist/'], cb);
