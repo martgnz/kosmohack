@@ -95,7 +95,7 @@ footer > div {
 
 .cover-text {
 	position: absolute;
-	padding-top: 32%;
+	padding-top: 10%;
 }
 
 .headline-cover {
@@ -103,7 +103,7 @@ footer > div {
 }
 
 .sub-text {
-	padding-top: 10%;
+	padding-top: 30%;
 }
 
 .img-credit-right {
@@ -111,29 +111,9 @@ footer > div {
 }
 
 .cover-timer {
-	padding-left: 40%;
-}
-
-.comparison {
-	height: 600px;
-}
-
-.cell1 {
-	float: left;
-	width: 200px;
-	padding-left: 2%;
-}
-
-.cell2 {
-	float: right;
-	margin-right: 200px;
-	background-color: blue;
-}
-.number1 {
-}
-
-.number2 {
-
+	padding-top: 10%;
+	padding-bottom: 20%;
+	text-align: center;
 }
 
 /* Large devices (large desktops, 1200px and up) */

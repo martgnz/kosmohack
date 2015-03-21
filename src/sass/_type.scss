@@ -1,10 +1,14 @@
-$font-title: 'Lato', Helvetica, Arial, sans-serif;
-$font-text: 'Lora', Georgia, serif;
+$font-title: Helvetica, Arial, sans-serif;
+$font-text: Georgia, serif;
 $white: #fff;
 
 /* Shared styles */
 h1 {
   font-size: 20px;
+}
+
+h2 {
+	font-family: $font-title;
 }
 
 .navbar {
@@ -53,7 +57,7 @@ footer > .container {
 /* App styles */
 .headline {
   font-family: $font-title;
-	font-size: 65px;
+	font-size: 50px;
 	color: $white;
 	letter-spacing: -2px;
 	font-weight: 100;
@@ -107,10 +111,18 @@ footer > div {
 
 .headline-cover {
 	font-family: $font-title;
-	font-size: 120px;
+	font-size: 80px;
 	letter-spacing: -2px;
 	line-height: 50px;
-	font-weight: 100;
+	font-weight: 700;
+}
+
+.subtitle {
+	padding-top: 2%;
+	font-family: $font-text;
+	letter-spacing: -1px;
+	font-size: 30px;
+	font-style: italic;
 }
 
 .sub-text {
@@ -134,7 +146,7 @@ footer > div {
 }
 
 .timer {
-	font-size: 40px;
+	font-size: 35px;
 	font-family: $font-title;
 	font-weight: 300;
 }

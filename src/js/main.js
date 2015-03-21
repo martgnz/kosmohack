@@ -13,7 +13,7 @@
         // count up timer
         var div = document.getElementById( 'deaths' );
         var i	= 0;
-        setInterval(function(){ div.innerHTML=i; i++; },2000);
+        setInterval(function(){ div.innerHTML=i; i++; },4000);
 
 
     });
