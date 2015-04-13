@@ -50,9 +50,6 @@ var sources = {
     images : [
         'src/img/**/*'
     ],
-    video : [
-        'src/video/**/*'
-    ],
     others : [
         'src/robots.txt',
         'src/humans.txt'
@@ -77,9 +74,6 @@ var target = {
     },
     fonts : {
         dir : 'dist/fonts'
-    },
-    video : {
-        dir : 'dist/video'
     },
     images : {
         dir : 'dist/img'
@@ -140,11 +134,6 @@ gulp.task('html', ['clean'], function() {
             message: sizeChangeMessageCallBack(preSize, postSize)
         }));
     return stream;
-});
-
-gulp.task('video', ['clean'], function() {
-    return gulp.src(sources.video)
-        .pipe(gulp.dest(target.video.dir));
 });
 gulp.task('fonts', ['clean'], function() {
     return gulp.src(sources.fonts)
@@ -231,7 +220,7 @@ gulp.task('commit', ['build'], function() {
     }
 });
 
-gulp.task('build', ['others','html', 'img', 'css', 'video', 'js', 'fonts']);
+gulp.task('build', ['others','html', 'img', 'css', 'js', 'fonts']);
 
 gulp.task('clean', function(cb) {
     del(['dist/'], cb);
